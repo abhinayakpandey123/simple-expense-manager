@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Expense Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar">
+
+        <div class="logo">
+            <span class="logo-dot"></span>
+            <span>Expense Manager</span>
+        </div>
+
+        <span class="divider">|</span>
+        <span class="finance-text">Finance</span>
+
+        <nav>
+            <a href="#" class="active">Overview</a>
+            <a href="#">Transactions</a>
+            <a href="#">Analytics</a>
+        </nav>
+
+        <div class="profile">
+            <span class="notification">*</span>
+            <span class="avatar">AB</span>
+            <span>Abhinayak</span>
+            <span>⌄</span>
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+
+        <section class="page-heading">
+
+            <div>
+                <h1>Good Morning, Abhinayak</h1>
+
+                <p>
+                    Here's a clear view of your spending this month.
+                </p>
+            </div>
+
+            <div class="month-selector">
+                <button>'<'</button>
+                <span>September 2026</span>
+                <button>'>'</button>
+            </div>
+
+        </section>
+
+
+        <section class="summary">
+
+            <div class="total-card">
+
+                <div class="card-top">
+                    <span>TOTAL SPENT THIS MONTH</span>
+
+                    <span class="growth">
+                        ^ 8.2% compared with last month
+                    </span>
+                </div>
+
+                <h2 id="totalExpense">₹12,450.00</h2>
+
+                <p>
+                    Budget tracking: on track for target ₹18,000
+                </p>
+
+            </div>
+
+
+            <div class="small-card">
+
+                <span class="card-label">TRANSACTIONS</span>
+
+                <h2 id="transactionCount">24</h2>
+
+                <p>avg. 0.8 per day</p>
+
+            </div>
+
+            <div class="small-card">
+
+                <span class="card-label">AVERAGE EXPENSE</span>
+
+                <h2 id="averageExpense">₹518.75</h2>
+
+                <p>well within weekly budget</p>
+
+            </div>
+
+        </section>
+
+
+        <section class="main-grid">
+
+
+            <div class="panel spending-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Spending overview</h2>
+                        <p>Daily expense flow across current month</p>
+                    </div>
+
+                    <span class="breakdown">
+                        # Daily breakdown
+                    </span>
+
+                </div>
+
+                <div class="chart">
+
+                    <div class="bar" style="height: 35%;">
+                        <span>₹600</span>
+                    </div>
+
+                    <div class="bar" style="height: 55%;">
+                        <span>₹950</span>
+                    </div>
+
+                    <div class="bar" style="height: 25%;">
+                        <span>₹350</span>
+                    </div>
+
+                    <div class="bar" style="height: 85%;">
+                        <span>₹1,500</span>
+                    </div>
+
+                    <div class="bar" style="height: 100%;">
+                        <span>₹1,850</span>
+                    </div>
+
+                    <div class="bar" style="height: 65%;">
+                        <span>₹1,100</span>
+                    </div>
+
+                    <div class="bar" style="height: 20%;">
+                        <span>₹250</span>
+                    </div>
+
+                </div>
+
+
+                <div class="days">
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                    <span>Sun</span>
+                </div>
+
+
+                <div class="chart-info">
+                    <span># Peak Day (Fri)</span>
+                    <span>#Travel/Daily</span>
+                    <span>#Weekend</span>
+
+                    <span class="peak">
+                        Peak: Fri (₹1,850)
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="panel add-expense">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Add expense</h2>
+                        <p>Quickly log your purchase with clean categorization</p>
+                    </div>
+
+                </div>
+
+
+                <form id="expenseForm">
+
+                    <!-- Amount -->
+                    <div class="form-group">
+
+                        <label for="amount">AMOUNT *</label>
+
+                        <div class="amount-input">
+                            <span>₹</span>
+
+                            <input
+                                type="number"
+                                id="amount"
+                                placeholder="0.00"
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="category">CATEGORY</label>
+
+                            <select id="category">
+
+                                <option value="Food">Food</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Bills">Bills</option>
+                                <option value="Entertainment">
+                                    Entertainment
+                                </option>
+                                <option value="Other">Other</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="date">DATE</label>
+
+                            <input
+                                type="date"
+                                id="date"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="description">DESCRIPTION</label>
+
+                        <input
+                            type="text"
+                            id="description"
+                            placeholder="e.g. Lunch at Cafe"
+                        >
+
+                    </div>
+
+
+                    <button type="submit" class="add-button">
+                        +  Add expense
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <section class="bottom-grid">
+
+
+            <div class="panel transactions-panel">
+
+                <div class="section-title">
+
+                    <div>
+                        <h2>Recent transactions</h2>
+                        <span>4 recent</span>
+                    </div>
+
+                    <a href="#">View all</a>
+
+                </div>
+
+
+                <div class="transaction">
+
+                    <div class="category-icon food">FD</div>
+
+                    <div class="transaction-info">
+                        <strong>Lunch</strong>
+                        <span>Food · Today</span>
+                    </div>
+
+                    <strong>₹250</strong>
+
+                </div>
+
+
+                <div class="transaction">
+
+                    <div class="category-icon travel">TR</div>
+
+                    <div class="transaction-info">
+                        <strong>Metro</strong>
+                        <span>Travel · Today</span>
+                    </div>
+
+                    <strong>₹80</strong>
+
+                </div>
+
+
+                <div class="transaction">
+
+                    <div class="category-icon shopping">SH</div>
+
+                    <div class="transaction-info">
+                        <strong>T-shirt</strong>
+                        <span>Shopping · Yesterday</span>
+                    </div>
+
+                    <strong>₹899</strong>
+
+                </div>
+
+
+                <div class="transaction">
+
+                    <div class="category-icon bills">BL</div>
+
+                    <div class="transaction-info">
+                        <strong>Electricity bill</strong>
+                        <span>Bills · 2 Sep</span>
+                    </div>
+
+                    <strong>₹1,240</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel category-panel">
+
+                <div class="section-title">
+
+                    <div>
+                        <h2>Spending by category</h2>
+                        <p>Distribution of overall expenses this month</p>
+                    </div>
+
+                    <span class="category-count">
+                        5 categories
+                    </span>
+
+                </div>
+
+
+
+                <div class="category-item">
+
+                    <div class="category-name">
+                        <span>*</span>
+                        <strong>Food</strong>
+                        <small>42% (₹5,229)</small>
+                    </div>
+
+                    <div class="progress">
+                        <div style="width: 42%;"></div>
+                    </div>
+
+                </div>
+
+                <div class="category-item">
+
+                    <div class="category-name">
+                        <span>*</span>
+                        <strong>Shopping</strong>
+                        <small>26% (₹3,237)</small>
+                    </div>
+
+                    <div class="progress">
+                        <div style="width: 26%;"></div>
+                    </div>
+
+                </div>
+
+                <div class="category-item">
+
+                    <div class="category-name">
+                        <span>*</span>
+                        <strong>Travel</strong>
+                        <small>18% (₹2,241)</small>
+                    </div>
+
+                    <div class="progress">
+                        <div style="width: 18%;"></div>
+                    </div>
+
+                </div>
+
+                <div class="category-item">
+
+                    <div class="category-name">
+                        <span>*</span>
+                        <strong>Bills</strong>
+                        <small>9% (₹1,120)</small>
+                    </div>
+
+                    <div class="progress">
+                        <div style="width: 9%;"></div>
+                    </div>
+
+                </div>
+
+                <div class="category-item">
+
+                    <div class="category-name">
+                        <span>*</span>
+                        <strong>Other</strong>
+                        <small>5% (₹623)</small>
+                    </div>
+
+                    <div class="progress">
+                        <div style="width: 5%;"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="category-footer">
+                    <span>Highest: <strong>Food (₹5,229)</strong></span>
+                    <span>Updated 5m ago</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
