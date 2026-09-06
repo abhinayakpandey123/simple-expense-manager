@@ -579,6 +579,22 @@ body {
 }
 
 
+#clearExpenses {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    background: #f1f5f9;
+    color: #334155;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#clearExpenses:hover {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+
 
 .category-count {
     background: #fff0df;
