@@ -1,4 +1,3 @@
-// let expenses = [];
 let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 
 const amountInput = document.getElementById("amount");
@@ -24,7 +23,7 @@ function updateDashboard() {
 }
 
 updateDashboard();
- 
+
 clearExpenses.addEventListener("click", function() {
     expenses = [];
     localStorage.removeItem("expenses");
@@ -32,34 +31,28 @@ clearExpenses.addEventListener("click", function() {
 });
 
 expenseForm.addEventListener("submit", function(event) {
-event.preventDefault();
+    event.preventDefault();
 
+    const amount = Number(amountInput.value);
+    const category = categoryInput.value;
+    const date = dateInput.value;
+    const description = descriptionInput.value;
 
-const amount = Number(amountInput.value);
-const category = categoryInput.value;
-const date = dateInput.value;
-const description = descriptionInput.value;
+    if (amount <= 0 || category === "" || date === "") {
+        alert("Please enter valid expense details.");
+        return;
+    }
 
-if (amount <= 0 || category === "" || date === "") {
-    alert("Please enter valid expense details.");
-    return;
-}
+    const expense = {
+        amount: amount,
+        category: category,
+        date: date,
+        description: description
+    };
 
-  const expense = {
-    amount: amount,
-    category: category,
-    date: date,
-    description: description
-};
-   
-   expenses.push(expense);
+    expenses.push(expense);
 
-   localStorage.setItem("expenses", JSON.stringify(expenses));
+    localStorage.setItem("expenses", JSON.stringify(expenses));
 
-   updateDashboard();
+    updateDashboard();
 });
-
-   const average = expenses.length > 0 ? total / expenses.length : 0;
-
-averageExpense.textContent = `₹${average.toFixed(2)}`;
-
